@@ -1,0 +1,13 @@
+@import 'variables';
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function pixel-to-rem($value, $base: $base-font-size) {
+  @return ($value / strip-unit($base)) * 1rem;
+}

@@ -1,0 +1,193 @@
+{
+  "name": "angular-ngrx-starter",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "yarn clean:dist && ng build",
+    "build:client-and-server-bundles": "yarn build:prod && ng run angular-ngrx-starter:server:prod",
+    "build:prod": "yarn clean:dist && ng build --configuration=prod",
+    "build:ssr": "yarn build:client-and-server-bundles && yarn compile:server",
+    "clean:dist": "rimraf dist/",
+    "codeceptjs": "codeceptjs",
+    "compile:server": "webpack --config webpack.server.config.js --colors --progress",
+    "cz": "git-cz",
+    "lint": "ng lint",
+    "ng": "ng",
+    "precz": "lint-staged",
+    "pull-request": "yarn && yarn lint && yarn stylelint && yarn test:ci -u && yarn build:ssr",
+    "serve:ssr": "node dist/server",
+    "ssr": "yarn build:ssr && yarn serve:ssr",
+    "start": "ng serve --port 4200",
+    "stylelint": "stylelint src/**/*.scss",
+    "test": "jest",
+    "test:ci": "jest --coverage --runInBand --no-cache",
+    "test:e2e": "codeceptjs run --steps --verbose --reporter mocha-multi",
+    "test:watch": "jest --watch"
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "testMatch": [
+      "**/__tests__/**/*.spec.ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "src/tsconfig.spec.json",
+        "diagnostics": true,
+        "stringifyContentPathRegex": "\\.html$",
+        "astTransformers": [
+          "jest-preset-angular/InlineHtmlStripStylesTransformer"
+        ]
+      }
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(ramda/es|@ngrx))"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/jest/jest.ts"
+    ],
+    "snapshotSerializers": [
+      "jest-preset-angular/AngularSnapshotSerializer",
+      "jest-preset-angular/HTMLCommentSerializer"
+    ],
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.animations.ts",
+      "!src/**/*.config.ts",
+      "!src/**/*.constants.ts",
+      "!src/**/*.enum.ts",
+      "!src/**/*.map.ts",
+      "!src/**/*.model.ts",
+      "!src/**/*.module.ts",
+      "!src/**/*.routes.ts",
+      "!src/**/index.ts",
+      "!src/**/app.reducer.ts",
+      "!src/main.ts",
+      "!src/main.server.ts",
+      "!src/polyfills.ts",
+      "!src/jest/**",
+      "!src/environments/**",
+      "!**/node_modules/**"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "node_modules/@types"
+    ],
+    "moduleNameMapper": {
+      "@app/(.*)": "<rootDir>/src/app/$1",
+      "@environments/(.*)": "<rootDir>/src/environments/$1",
+      "@mock/(.*)": "<rootDir>/__mocks__/$1",
+      "@shared/(.*)": "<rootDir>/src/app/shared/$1",
+      "@store/(.*)": "<rootDir>/src/app/store/$1"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "scopeList": [
+        "ci",
+        "e2e",
+        "global",
+        "misc",
+        "performance-monitoring",
+        "unit-tests"
+      ]
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "tslint",
+      "prettier --single-quote --write",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint"
+    ],
+    "*.html": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^8.2.8",
+    "@angular/common": "^8.2.8",
+    "@angular/compiler": "^8.2.8",
+    "@angular/core": "^8.2.8",
+    "@angular/forms": "^8.2.8",
+    "@angular/platform-browser": "^8.2.8",
+    "@angular/platform-browser-dynamic": "^8.2.8",
+    "@angular/platform-server": "^8.2.8",
+    "@angular/router": "^8.2.8",
+    "@ngrx/effects": "^8.3.0",
+    "@ngrx/router-store": "^8.3.0",
+    "@ngrx/store": "^8.3.0",
+    "@nguniversal/express-engine": "^8.1.1",
+    "@nguniversal/module-map-ngfactory-loader": "^8.1.1",
+    "core-js": "^3.2.1",
+    "express": "^4.17.1",
+    "modern-normalize": "^0.5.0",
+    "ramda": "^0.26.1",
+    "rxjs": "^6.5.3",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.9.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.803.6",
+    "@angular/cli": "^8.3.6",
+    "@angular/compiler-cli": "^8.2.8",
+    "@angular/language-service": "^8.2.8",
+    "@ngrx/store-devtools": "^8.3.0",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.8",
+    "codeceptjs": "^2.3.2",
+    "codelyzer": "^5.1.2",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "git+https://github.com/JovicaConkic/cz-conventional-changelog.git",
+    "global": "^4.4.0",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "jest-preset-angular": "^7.1.1",
+    "lint-staged": "^9.4.0",
+    "mocha": "^6.2.0",
+    "mocha-multi": "^1.1.3",
+    "mochawesome": "^4.1.0",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.18.2",
+    "protractor": "^5.4.2",
+    "puppeteer": "^1.20.0",
+    "rimraf": "^3.0.0",
+    "rxjs-marbles": "^5.0.3",
+    "rxjs-tslint-rules": "^4.25.0",
+    "stylelint": "^11.0.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-order": "^3.1.1",
+    "ts-jest": "^24.1.0",
+    "ts-loader": "^6.1.2",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "~3.5.3",
+    "webpack": "4.x.x",
+    "webpack-cli": "^3.3.9"
+  },
+  "engines": {
+    "node": ">10.0.0"
+  }
+}

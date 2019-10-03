@@ -1,0 +1,61 @@
+@import '../mixins/media';
+
+.hidden-xs {
+  display: none !important;
+  @include sm {
+    display: block !important;
+  }
+}
+
+.hidden-sm {
+  display: none !important;
+  @include md {
+    display: block !important;
+  }
+}
+
+.hidden-md {
+  display: none !important;
+  @include lg {
+    display: block !important;
+  }
+}
+// Inline-blocks
+.hidden-xs--ib {
+  display: none !important;
+  @include sm {
+    display: inline-block !important;
+  }
+}
+
+.hidden-sm--ib {
+  display: none !important;
+  @include md {
+    display: inline-block !important;
+  }
+}
+
+.hidden-md--ib {
+  display: none !important;
+  @include lg {
+    display: inline-block !important;
+  }
+}
+
+.visible-xs {
+  @include sm {
+    display: none !important;
+  }
+}
+
+.visible-sm {
+  @include md {
+    display: none !important;
+  }
+}
+
+.visible-md {
+  @include lg {
+    display: none !important;
+  }
+}
