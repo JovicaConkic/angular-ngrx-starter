@@ -97,3 +97,21 @@ yarn add -D @types/lodash
 
 If you can't find the type definition in the registry we can make an ambient definition in
 this file for now -> [TypeScript - Ambients](https://www.tutorialspoint.com/typescript/typescript_ambients.htm)
+
+## Coding styleguide and standards
+
+### Git
+
+See document [Git, Git flow and Conventional commit](GIT.md)
+
+### SCSS styleguide and BEM methodology
+
+See document [SCSS styleguide and BEM methodology](STYLE.md)
+
+### Unit and E2E tests
+
+See document [Unit and E2E tests](TEST.md)
+
+### Coding style, guidelines and preferences
+
+See document [Coding style, guidelines and preferences](GUIDELINE.md)
