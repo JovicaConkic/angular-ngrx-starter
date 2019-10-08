@@ -117,6 +117,9 @@
     }
   },
   "defaultProject": "angular-ngrx-starter",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  },
   "schematics": {
     "@ngrx/schematics:component": {
       "changeDetection": "OnPush",

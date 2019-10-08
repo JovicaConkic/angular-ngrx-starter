@@ -153,6 +153,7 @@
     "@angular/cli": "^8.3.6",
     "@angular/compiler-cli": "^8.2.8",
     "@angular/language-service": "^8.2.8",
+    "@ngrx/schematics": "^8.3.0",
     "@ngrx/store-devtools": "^8.3.0",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.8",
