@@ -1,5 +1,5 @@
-@import './mixins/media';
-@import 'variables';
+@import "./mixins/media";
+@import "variables";
 
 $h-line-height: 1.1;
 $b-line-height: 1.3;
@@ -21,7 +21,7 @@ html {
   &.wf-active {
     &,
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: Roboto, sans-serif;
     }
   }
 }

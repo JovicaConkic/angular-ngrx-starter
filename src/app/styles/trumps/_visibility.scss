@@ -1,5 +1,6 @@
-@import '../mixins/media';
+@import "../mixins/media";
 
+/* stylelint-disable */
 .hidden-xs {
   display: none !important;
   @include sm {
@@ -59,3 +60,4 @@
     display: none !important;
   }
 }
+/* stylelint-enable */
