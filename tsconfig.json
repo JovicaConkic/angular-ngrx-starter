@@ -20,7 +20,6 @@
     "paths": {
       "@app/*": ["./app/*"],
       "@environments/*": ["./environments/*"],
-      "@jest/*": ["./jest/*"],
       "@mocks/*": ["../__mocks__/*"],
       "@shared/*": ["./app/shared/*"],
       "@store/*": ["./app/store/*"]

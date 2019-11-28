@@ -17,7 +17,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "stylePreprocessorOptions": {
-              "includePaths": ["src/app/styles"]
+              "includePaths": ["src/app/styles/"]
             },
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [],
@@ -65,7 +65,7 @@
             "browserTarget": "angular-ngrx-starter:build"
           },
           "configurations": {
-            "production": {
+            "prod": {
               "browserTarget": "angular-ngrx-starter:build:prod"
             }
           }
@@ -90,7 +90,7 @@
             "main": "src/main.server.ts",
             "tsConfig": "src/tsconfig.server.json",
             "stylePreprocessorOptions": {
-              "includePaths": ["src/app/styles"]
+              "includePaths": ["src/app/styles/"]
             }
           },
           "configurations": {

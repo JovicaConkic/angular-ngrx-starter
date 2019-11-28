@@ -87,7 +87,7 @@
     "moduleNameMapper": {
       "@app/(.*)": "<rootDir>/src/app/$1",
       "@environments/(.*)": "<rootDir>/src/environments/$1",
-      "@mock/(.*)": "<rootDir>/__mocks__/$1",
+      "@mocks/(.*)": "<rootDir>/__mocks__/$1",
       "@shared/(.*)": "<rootDir>/src/app/shared/$1",
       "@store/(.*)": "<rootDir>/src/app/store/$1"
     }
@@ -112,7 +112,7 @@
       "git add"
     ],
     "*.scss": [
-      "stylelint"
+      "yarn stylelint 'src/**/*.scss' --fix --syntax scss"
     ],
     "*.html": [
       "prettier --write",

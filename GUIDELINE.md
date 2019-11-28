@@ -230,7 +230,7 @@ constructor(private store\$: Store<...>) {}
 
 #### **RouterStore**
 
-While creating angular project using ryanair-cli, it comes with RouterStoreSerializer which saves current url state in ngrx store. RouterStore enables you to parse url without injecting ActivatedRoute and it has queryParams and params already in place. Consistent approach is to subscribe to router ngrx state to get all url related information needed.
+While creating angular project, it comes with RouterStoreSerializer which saves current url state in ngrx store. RouterStore enables you to parse url without injecting ActivatedRoute and it has queryParams and params already in place. Consistent approach is to subscribe to router ngrx state to get all url related information needed.
 
 ```ts
 interface RouterState {

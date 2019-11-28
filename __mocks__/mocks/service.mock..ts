@@ -1,5 +1,4 @@
 import { EventEmitter, Injectable, NgZone } from '@angular/core';
-import { Actions } from '@ngrx/effects';
 import { EMPTY, Observable, Operator } from 'rxjs';
 
 /**
@@ -28,19 +27,6 @@ export class MockObservable<T> extends Observable<T> {
   }
 }
 
-@Injectable()
-export class MockActions<T> extends Actions {
-  public source: Observable<any>;
-
-  constructor() {
-    super(EMPTY);
-  }
-
-  public setSource(source: Observable<T>): void {
-    this.source = source;
-  }
-}
-
 /**
  * A mock implementation of {@link NgZone}.
  */
@@ -63,31 +49,6 @@ export class MockNgZone extends NgZone {
   public simulateZoneExit(): void {
     this.onStable.emit(null);
   }
-}
-
-/**
- * Mocks store as actual observable
- */
-export class StoreAsObservable extends Observable<any> {
-  public dispatch: jest.Mock = jest.fn();
-}
-
-/**
- * Mocks store with all methods
- * Allows passing state on start
- */
-export class StoreMock {
-  public dispatch: jest.Mock<any> = jest.fn();
-
-  public static of(state: Observable<any>): StoreMock {
-    return new StoreMock(state);
-  }
-
-  public pipe: any = (...args) => {
-    return (this.state as any).pipe(...args);
-  };
-
-  constructor(private state: Observable<any> = EMPTY) {}
 }
 
 export class MockHttp {
